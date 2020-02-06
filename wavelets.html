@@ -1,0 +1,88 @@
+<HTML>
+<BODY>
+	
+<div align="center">
+
+<select id="original" size="3">
+  <option selected value="original">Исходные</option>
+  <option selected value="diffs">Разницы</option>
+  <option value="corrs">Корреляции</option>
+</select>
+
+<select id="quality" size="4">
+  <option disabled>Качество</option>
+  <option selected value="Low">Low</option>
+  <option value="Normal">Normal</option>
+  <option value="High">High</option>
+</select>
+
+<select id="percentage" size="5">
+  <option disabled>Процент вложений</option>
+  <option selected value="25">25</option>
+  <option value="50">50</option>
+  <option value="75">75</option>
+  <option value="100">100</option>
+</select>
+
+<select id="ca" size="3">
+  <option disabled>Коэффициенты</option>
+  <option selected value="ca">cA</option>
+  <option value="cd">cD</option>
+</select>
+
+<select id="stat" size="5">
+  <option disabled>Стат. хар-ка</option>
+  <option selected value="mean">mean</option>
+  <option value="std">std</option>
+  <option value="skew">skew</option>
+  <option value="kurt">kurt</option>
+</select>
+
+<select id="depth" size="9">
+  <option disabled>Глубина</option>
+  <option selected value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+</select>
+
+
+<script>
+function myFunction(){
+  let timerId = setInterval(() => showPic(), 20);
+}
+
+function showPic() {
+  var path = 'charts/' + 
+    original.value + '/' + 
+    quality.value + 
+    percentage.value + '/' + 
+    ca.value + '_' +
+    depth.value + '_' +
+    stat.value + '.png';
+
+  document.getElementById("demo").innerHTML = path;
+  document.getElementById("image").src = path;
+
+}
+</script>
+
+<script>
+  myFunction()
+</script>
+
+<p id = "demo"></p>
+
+<img id="image" src="charts/Low25/ca_1_kurt.png" width=100%>
+
+
+
+</div>
+
+</BODY>
+
+</HTML>
